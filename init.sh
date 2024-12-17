@@ -17,4 +17,4 @@ brew install --cask git-credential-manager
 git-credential-manager github login
 git-credential-manager configure
 
-yadm clone https://github.com/efodiks/dotfiles
+yadm clone --recurse-submodules https://github.com/efodiks/dotfiles
