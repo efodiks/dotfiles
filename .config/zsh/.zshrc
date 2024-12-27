@@ -47,9 +47,6 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(git zsh-syntax-highlighting zsh-autosuggestions gradle aws autoupdate fzf-tab fnm fzf)
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
-# https://github.com/zsh-users/zsh-completions
-fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
-
 source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
