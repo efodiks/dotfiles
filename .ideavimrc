@@ -1,0 +1,143 @@
+" .ideavimrc is a configuration file for IdeaVim plugin. It uses
+"   the same commands as the original .vimrc configuration.
+" You can find a list of commands here: https://jb.gg/h38q75
+" Find more examples here: https://jb.gg/share-ideavimrc
+let mapleader = " "
+set number relativenumber
+imap jj <Esc>
+imap jk <Esc>
+
+"" -- Suggested options --
+" Show a few lines of context around the cursor. Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+set scrolloff=5
+
+" Do incremental searching.
+set incsearch
+
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+
+" --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
+
+" Highlight copied text
+Plug 'machakann/vim-highlightedyank'
+
+"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+"" Map \r to the Reformat Code action
+let g:WhichKeyDesc_code =  "<leader>c Code"
+let g:WhichKeyDesc_code_refactor = "<leader>cr Refactor"
+map <leader>cf <Action>(ReformatCode)
+map <leader>cb <Action>(CompileDirty)
+map <leader>co <Action>(OptimizeImports)
+map <leader>cd <action>(QuickImplementations)
+map <leader>crs <action>(RenameElement)<action>(StringManipulation.ToScreamingSnakeCase)<action>(NextTemplateVariable)<action>(EditorEscape)
+map <leader>cc <Action>(ShowHoverInfo)
+map <leader>crv <Action>(IntroduceVariable)
+map <leader>crm <Action>(ExtractFunction)
+map <leader>crr <Action>(RenameElement)
+
+let g:WhichKeyDesc_vim = "<leader>v IdeaVim"
+map <leader>vr <Action>(IdeaVim.ReloadVimRc.reload)
+"" Map <leader>d to start debug
+"map <leader>d <Action>(Debug)
+
+"" Map \b to toggle the breakpoint on the current line
+"map \b <Action>(ToggleLineBreakpoint)
+
+"" Run actions
+let g:WhichKeyDesc_run = "<leader>r Run"
+nmap <leader>rr <Action>(Run)
+
+"" Tab operations
+nmap <leader>h <Action>(PreviousTab)
+map <C-h> <Action>(PreviousTab)
+nmap <leader>l <Action>(NextTab)
+map <C-l> <Action>(NextTab)
+
+"" Moving around
+map <D-j> <Action>(MethodDown)
+map <D-k> <Action>(MethodUp)
+map <C-j> <C-f>
+map <C-k> <C-b>
+
+"" Window operations
+let g:WhichKeyDesc_window = "<leader>w Window"
+let g:WhichKeyDesc_window_left = "<leader>wh go left"
+let g:WhichKeyDesc_window_right = "<leader>wl go right"
+let g:WhichKeyDesc_window_up = "<leader>wk go up"
+let g:WhichKeyDesc_window_down = "<leader>wj go down"
+nmap <leader>wl <C-w>l
+nmap <leader>wh <C-w>h
+nmap <leader>wj <C-w>j
+nmap <leader>wk <C-w>k
+
+let g:WhichKeyDesc_window_new = "<leader>wn New"
+nmap <leader>wnl <Action>(MoveTabRight)
+let g:WhichKeyDesc_window_new_right = "<leader>wnl Split and move right"
+
+nmap <leader>wnj <Action>(MoveTabDown)
+let g:WhichKeyDesc_window_new_down = "<leader>wnj Split and move down"
+
+nmap <leader>wm <Action>(MoveEditorToOppositeTabGroup)
+let g:WhichKeyDesc_window_move = "<leader>wm Move active tab to opposite window
+
+"" NERDTree
+set NERDTree
+let g:NERDTreeMapActivateNode='l'
+let g:NERDTreeMapOpenRecursively='L'
+let g:NERDTreeMapCloseDir='h'
+let g:NERDTreeMapCloseChildren='H'
+
+"" Which-Key https://github.com/TheBlob42/idea-which-key
+set which-key
+set notimeout
+"set timeoutlen=5000
+let g:WhichKey_ShowVimActions = "true"
+
+"" Add 'a' text object - allows to cia (change inner argument)
+Plug 'https://github.com/vim-scripts/argtextobj.vim'
+
+""
+Plug 'https://github.com/tpope/vim-commentary'
+let g:WhichKeyDesc_commentary = "gc Commentary"
+let g:WhichKeyDesc_commentary_c = "gcc Comment / Uncomment line"
+let g:WhichKeyDesc_commentary_u = "gcu Uncomment this and adjacent lines"
+
+Plug 'tpope/vim-surround'
+
+
+"" Git
+let g:WhichKeyDesc_git = "<leader>g Git"
+
+let g:WhichKeyDesc_git_annotate = "<leader>ga Annotate with git blame"
+nmap <leader>ga <Action>(Annotate)
+
+
+"" Gradle
+"" let g:WhichKeyDesc_gradle = "<leader> go Gradle"
+
+let g:WhichKeyDesc_gradle_refresh = "<leader> go Gradle refresh projects"
+nmap <leader>go <Action>(ExternalSystem.RefreshAllProjects)<Esc>
+
+"" Clipboard
+nmap <C-p> "0p
+nmap <C-S-P> "0P
+
+"" Easy motion
+Plug 'easymotion/vim-easymotion'
+map <leader>j <Plug>(easymotion-f)
+map <leader>J <Plug>(easymotion-s)
+
+"" vim-peekaboo - show contents of registers when pressing "
+set peekaboo
+
+"" vim-functiontextobj - allows to use if and af to target functions as movement
+set functiontextobj
+
+"" Project shortcuts
+let g:WhichKeyDesc_Project = "<leader>p Project"
+let g:WhichKeyDesc_Project_close = "<leader>px Close project"
+nmap <leader>px <Action>(CloseProject)
+let g:WhichKeyDesc_Project_open = "<leader>po CloseOpen project"
+nmap <leader>po <Action>($LRU)

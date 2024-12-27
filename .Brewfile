@@ -37,4 +37,5 @@ cask "itsycal"
 cask "rectangle"
 cask "iterm2"
 cask "jetbrains-toolbox"
+cask "karabiner-elements"
 
