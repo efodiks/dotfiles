@@ -19,6 +19,7 @@ fi
 export ZSH="$HOME/.config/zsh/.oh-my-zsh"
 export ZSH_CUSTOM="$HOME/.config/zsh/.oh-my-zsh-custom"
 export ZSH_COMPDUMP="${XDG_CACHE_HOME:-$HOME/.cache}/.zcompdump-$HOST"
+export HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/.zsh_history"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -43,12 +44,11 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git colorize zsh-syntax-highlighting zsh-autosuggestions gradle gradle-completion aws autoupdate fzf-tab)
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions gradle aws autoupdate fzf-tab fnm fzf)
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 # https://github.com/zsh-users/zsh-completions
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
-fpath+=~/.dotfiles/completions
 
 source $ZSH/oh-my-zsh.sh
 
@@ -63,19 +63,8 @@ source $ZSH/oh-my-zsh.sh
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-# eval "$(saml2aws --completion-script-zsh)"
-
-complete -C aws_completer aws
-
-source ~/.config/zsh/.fzf.zsh
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 source ~/.config/zsh/.p10k.zsh
 
-for f in ~/.dotfiles/*(N); do
-  source $f
-done
-
-export HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/.zsh_history"
 # see first line of this file
 # zprof
