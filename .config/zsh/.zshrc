@@ -44,7 +44,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions gradle aws autoupdate fzf-tab fnm fzf)
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions gradle aws autoupdate fzf-tab fnm fzf httpie)
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 source $ZSH/oh-my-zsh.sh
